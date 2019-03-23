@@ -11,6 +11,9 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { InventoryComponent } from './inventory/inventory.component';
 import { OrdersComponent } from './orders/orders.component';
+import { PcAssortmentComponent } from './inventory/pc-assortment/pc-assortment.component';
+import { LaptopAssortmentComponent } from './inventory/laptop-assortment/laptop-assortment.component';
+import { SmartphoneAssortmentComponent } from './inventory/smartphone-assortment/smartphone-assortment.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { OrdersComponent } from './orders/orders.component';
     HeaderComponent,
     FooterComponent,
     InventoryComponent,
-    OrdersComponent
+    OrdersComponent,
+    PcAssortmentComponent,
+    LaptopAssortmentComponent,
+    SmartphoneAssortmentComponent
   ],
   imports: [
     BrowserModule,
