@@ -1,0 +1,10 @@
+a {
+    padding: 3px;
+    border: 1px dashed black;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.active-link {
+    background-color: rgb(207, 207, 207);
+}
