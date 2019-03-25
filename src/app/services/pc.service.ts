@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Pc } from '../model/pc.model';
+import { Observable } from 'rxjs';
+import { of } from 'rxjs';
 
 const ALL_PCS: Pc[] = [
   new Pc('Asus ROG GT560', 2018),
@@ -16,6 +18,10 @@ const ALL_PCS: Pc[] = [
 export class PcService {
 
   constructor() { }
+
+  // getAllPcs(): Observable<Pc[]> {
+  //   return of(ALL_PCS);
+  // }
 
   getAllPcs() {
     return ALL_PCS;
