@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatTableDataSource } from '@angular/material/table';
+import { PcService } from 'src/app/services/pc.service';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+
 
 @Component({
   selector: 'app-pc-assortment',
@@ -7,9 +12,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PcAssortmentComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  
+  constructor(private pcService: PcService) { }
+
+  displayedColumns: string[] = ['name', 'year'];
+  dataSource = new MatTableDataSource(this.pcService.getAllPcs());
 
   ngOnInit() {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
   }
 
 }
