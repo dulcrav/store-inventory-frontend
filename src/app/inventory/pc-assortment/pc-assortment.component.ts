@@ -15,16 +15,23 @@ export class PcAssortmentComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  allPcs: Pc[] = [];
   
   constructor(private pcService: PcService) { }
 
-  displayedColumns: string[] = ['name', 'year'];
-  dataSource = new MatTableDataSource(this.pcService.getAllPcs());
+  displayedColumns: string[] = ['id', 'name', 'quantity', 'edit'];
+  dataSource = new MatTableDataSource<Pc>();
   isLoading = true;
 
   ngOnInit() {
     this.dataSource.sort = this.sort;
     this.dataSource.paginator = this.paginator;
+    this.pcService.getAllPcs().subscribe(pcs => {
+      this.isLoading = false;
+      this.allPcs = pcs;
+      this.dataSource.data = this.allPcs }
+    );
   }
 
 }

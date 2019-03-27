@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 // Angular Material imports
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -34,6 +35,7 @@ import { SmartphoneAssortmentComponent } from './inventory/smartphone-assortment
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     MatToolbarModule,
