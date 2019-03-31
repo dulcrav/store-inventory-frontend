@@ -4,6 +4,7 @@ import { AssortmentService } from 'src/app/services/assortment.service';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
 import { Pc } from 'src/app/model/pc.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 
 @Component({
@@ -18,11 +19,16 @@ export class PcAssortmentComponent implements OnInit {
 
   allPcs: Pc[] = [];
   
-  constructor(private assortmentService: AssortmentService) { }
+  constructor(private assortmentService: AssortmentService, private snackBar: MatSnackBar) { }
+
 
   displayedColumns: string[] = ['id', 'name', 'quantity', 'edit'];
   dataSource = new MatTableDataSource<Pc>();
   isLoading = true;
+
+  applyFilter(filterValue: string) {
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
   ngOnInit() {
     this.dataSource.sort = this.sort;
