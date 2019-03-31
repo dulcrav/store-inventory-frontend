@@ -1,0 +1,41 @@
+<button mat-icon-button (click)="goBack()">
+  <mat-icon svgIcon="back"></mat-icon>
+</button>
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>{{ pc?.name }}</mat-card-title>
+    <mat-card-subtitle>{{ pc?.producer }}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <table class="content-table">
+      <tr>
+        <td>Processor: </td>
+        <td>{{ pc?.processor }}</td>
+      </tr>
+      <tr>
+        <td>RAM: </td>
+        <td>{{ pc?.ram }} GB</td>
+      </tr>
+      <tr>
+        <td>Graphics: </td>
+        <td>{{ pc?.graphics }}</td>
+      </tr>
+      <tr *ngIf="pc?.hdd">
+        <td>HDD: </td>
+        <td>{{ pc?.hdd }} GB</td>
+      </tr>
+      <tr *ngIf="pc?.ssd">
+        <td>SSD: </td>
+        <td>{{ pc?.ssd }} GB</td>
+      </tr>
+      <tr>
+        <td>OS: </td>
+        <td>{{ pc?.os }}</td>
+      </tr>
+      </table>
+  </mat-card-content>
+  <mat-card-actions>
+    <p>In stock: {{ pc?.quantity }}</p>
+    <button mat-button>Update</button>
+  </mat-card-actions>
+</mat-card>

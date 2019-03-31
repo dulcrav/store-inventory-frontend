@@ -11,6 +11,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -24,6 +25,9 @@ import { OrdersComponent } from './orders/orders.component';
 import { PcAssortmentComponent } from './inventory/pc-assortment/pc-assortment.component';
 import { LaptopAssortmentComponent } from './inventory/laptop-assortment/laptop-assortment.component';
 import { SmartphoneAssortmentComponent } from './inventory/smartphone-assortment/smartphone-assortment.component';
+import { PcItemComponent } from './inventory/pc-assortment/pc-item/pc-item.component';
+import { LaptopItemComponent } from './inventory/laptop-assortment/laptop-item/laptop-item.component';
+import { SmartphoneItemComponent } from './inventory/smartphone-assortment/smartphone-item/smartphone-item.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,10 @@ import { SmartphoneAssortmentComponent } from './inventory/smartphone-assortment
     OrdersComponent,
     PcAssortmentComponent,
     LaptopAssortmentComponent,
-    SmartphoneAssortmentComponent
+    SmartphoneAssortmentComponent,
+    PcItemComponent,
+    LaptopItemComponent,
+    SmartphoneItemComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +57,8 @@ import { SmartphoneAssortmentComponent } from './inventory/smartphone-assortment
     MatCardModule,
     MatSnackBarModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
