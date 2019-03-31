@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { MatSort } from '@angular/material/sort';
+import { MatPaginator } from '@angular/material/paginator';
+import { AssortmentService } from 'src/app/services/assortment.service';
+import { Smartphone } from 'src/app/model/smarthphone.model';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-smartphone-assortment',
@@ -7,9 +12,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SmartphoneAssortmentComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild(MatSort) sort: MatSort;
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+
+  allSmartphones: Smartphone[] = [];
+  
+  constructor(private assortmentService: AssortmentService) { }
+
+  displayedColumns: string[] = ['id', 'name', 'fingerprintScanner', 'quantity', 'edit'];
+  dataSource = new MatTableDataSource<Smartphone>();
+  isLoading = true;
 
   ngOnInit() {
+    this.dataSource.sort = this.sort;
+    this.dataSource.paginator = this.paginator;
+    this.assortmentService.getAllSmartphones().subscribe(smartphones => {
+      this.isLoading = false;
+      this.allSmartphones = smartphones;
+      this.dataSource.data = this.allSmartphones 
+    });
   }
 
 }
